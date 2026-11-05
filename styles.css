@@ -73,7 +73,19 @@ a { color: inherit; text-underline-offset: 3px; }
   stroke-linejoin: round;
 }
 
-.quiet-link { color: var(--ink-2); font-size: 0.92rem; }
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-right: -8px;
+  color: var(--ink-2);
+}
+
+.github-link:hover { color: var(--ink); }
+
+.github-link svg { fill: currentColor; }
 
 .intro { padding-block: 72px 36px; }
 
@@ -144,7 +156,7 @@ h3 { font: 500 1.6rem/1.2 var(--serif); }
 
 .principles {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 28px;
   margin-top: 14px;
   list-style: none;
