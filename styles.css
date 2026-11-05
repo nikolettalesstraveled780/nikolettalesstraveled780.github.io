@@ -20,7 +20,7 @@
   --surface: #fffdf8;
   --ink: #211c17;
   --ink-2: #5b5248;
-  --line: #e0d8c8;
+  --line: #cfc4af;
   --accent: #008a7a;
   --on-accent: #ffffff;
 }
@@ -32,7 +32,7 @@
     --surface: #1f1b17;
     --ink: #f2ece1;
     --ink-2: #c4b9a8;
-    --line: #3a332b;
+    --line: #4d4439;
     --accent: #1aa394;
     --on-accent: #0e1a18;
   }
@@ -70,14 +70,14 @@ a { color: inherit; text-underline-offset: 3px; }
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding-block: 20px;
+  padding-block: 18px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 500;
   line-height: 1;
   text-decoration: none;
@@ -97,9 +97,9 @@ a { color: inherit; text-underline-offset: 3px; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  margin-right: -8px;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
   color: var(--ink-2);
 }
 
@@ -120,7 +120,7 @@ h1 {
   max-width: 36em;
   margin-top: 20px;
   color: var(--ink-2);
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 .signal {
@@ -141,7 +141,7 @@ h1 {
 
 h2 {
   color: var(--ink-2);
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   line-height: 1.3;
 }
 
@@ -169,50 +169,59 @@ h3 { font-size: 1.35rem; line-height: 1.2; letter-spacing: -0.02em; }
   border: 1px solid var(--line);
   border-radius: 999px;
   color: var(--ink-2);
-  font-size: 0.78rem;
+  font-size: 0.8125rem;
   white-space: nowrap;
 }
 
-.project p { color: var(--ink-2); font-size: 0.95rem; }
+.project p { color: var(--ink-2); }
+
+.project p + p { margin-top: 8px; }
+
+.project a:hover, .colophon a:hover { color: var(--ink); }
 
 .principles {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
+  gap: 24px;
   margin-top: 14px;
   list-style: none;
 }
 
 .principles li {
   color: var(--ink-2);
-  font-size: 0.88rem;
   font-weight: 400;
+  text-wrap: balance;
 }
 
 .principles strong {
   display: block;
   margin-bottom: 4px;
   color: var(--ink);
-  font-size: 1rem;
   font-weight: 500;
 }
 
 .colophon {
   display: grid;
-  gap: 4px;
-  margin-top: 64px;
-  padding-block: 24px 48px;
+  gap: 12px;
+  margin-top: 56px;
+  padding-bottom: 48px;
   color: var(--ink-2);
-  font-size: 0.8rem;
+  font-size: 0.875rem;
 }
 
-@media (max-width: 720px) {
+.colophon p { text-wrap: balance; }
+
+.colophon p:first-child {
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 860px) {
   .principles { grid-template-columns: minmax(0, 1fr); gap: 16px; }
 }
 
 @media (max-width: 640px) {
   .masthead, main, .colophon { padding-inline: 16px; }
   .intro { padding-block: 40px 28px; }
-  .lede { font-size: 1rem; }
   .project { padding: 18px; }
 }
