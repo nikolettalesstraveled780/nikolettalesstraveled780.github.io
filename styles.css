@@ -162,6 +162,8 @@ h2 {
 h3 { font-size: 1.35rem; line-height: 1.2; letter-spacing: -0.02em; }
 
 /* The title is the link, and it stretches to make the whole card clickable. */
+.project h3 a { text-decoration: none; }
+
 .project h3 a::after {
   content: "";
   position: absolute;
