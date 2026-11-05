@@ -23,6 +23,7 @@
   --line: #cfc4af;
   --accent: #008a7a;
   --on-accent: #ffffff;
+  --v: 1px; /* vertical spacing unit, shrunk on short desktop windows below */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -70,7 +71,7 @@ a { color: inherit; text-underline-offset: 3px; }
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding-block: 18px;
+  padding-block: calc(18 * var(--v));
 }
 
 .brand {
@@ -107,7 +108,7 @@ a { color: inherit; text-underline-offset: 3px; }
 
 .github-link svg { fill: currentColor; }
 
-.intro { padding-block: 72px 36px; }
+.intro { padding-block: calc(72 * var(--v)) calc(36 * var(--v)); }
 
 h1 {
   font-size: clamp(1.85rem, 6vw, 3.25rem);
@@ -118,7 +119,7 @@ h1 {
 
 .lede {
   max-width: 36em;
-  margin-top: 20px;
+  margin-top: calc(20 * var(--v));
   color: var(--ink-2);
   font-size: 1rem;
 }
@@ -126,7 +127,7 @@ h1 {
 .signal {
   display: block;
   width: 100%;
-  height: 80px;
+  height: calc(56px + 24 * var(--v));
 }
 
 .signal path {
@@ -137,7 +138,7 @@ h1 {
   vector-effect: non-scaling-stroke;
 }
 
-.block { margin-top: 56px; }
+.block { margin-top: calc(56 * var(--v)); }
 
 h2 {
   color: var(--ink-2);
@@ -146,20 +147,15 @@ h2 {
 }
 
 .project {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px 16px;
   margin-top: 14px;
-  padding: 24px;
+  padding: 20px 24px;
   border: 1px solid var(--line);
   border-radius: 14px;
   background: var(--surface);
-}
-
-.project-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 6px 16px;
-  margin-bottom: 8px;
 }
 
 h3 { font-size: 1.35rem; line-height: 1.2; letter-spacing: -0.02em; }
@@ -173,11 +169,13 @@ h3 { font-size: 1.35rem; line-height: 1.2; letter-spacing: -0.02em; }
   white-space: nowrap;
 }
 
-.project p { color: var(--ink-2); }
+.project p {
+  grid-column: 1 / -1;
+  color: var(--ink-2);
+  text-wrap: balance;
+}
 
-.project p + p { margin-top: 8px; }
-
-.project a:hover, .colophon a:hover { color: var(--ink); }
+.colophon a:hover { color: var(--ink); }
 
 .principles {
   display: grid;
@@ -202,21 +200,30 @@ h3 { font-size: 1.35rem; line-height: 1.2; letter-spacing: -0.02em; }
 
 .colophon {
   display: grid;
-  gap: 12px;
-  margin-top: 56px;
-  padding-bottom: 48px;
+  gap: calc(12 * var(--v)) 24px;
+  margin-top: calc(56 * var(--v));
+  padding-bottom: calc(48 * var(--v));
   color: var(--ink-2);
   font-size: 0.875rem;
 }
 
-.colophon p { text-wrap: balance; }
-
-.colophon p:first-child {
-  padding-top: 24px;
+.colophon::before {
+  content: "";
+  grid-column: 1 / -1;
+  margin-bottom: calc(12 * var(--v));
   border-top: 1px solid var(--line);
 }
 
-@media (max-width: 860px) {
+.colophon p { text-wrap: balance; }
+
+/* Desktop: the whole page fits the window, down to about 640px tall. */
+@media (min-width: 880px) {
+  :root { --v: clamp(0.3px, (100vh - 508px) / 428, 1px); }
+  .lede { max-width: none; text-wrap: balance; }
+  .colophon { grid-template-columns: 2fr 1fr; }
+}
+
+@media (max-width: 879px) {
   .principles { grid-template-columns: minmax(0, 1fr); gap: 16px; }
 }
 
