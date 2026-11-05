@@ -17,3 +17,5 @@ Then open <http://localhost:4174>.
 ## License
 
 BSD 3-Clause. See [LICENSE](LICENSE).
+
+The site uses [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono), hosted here so that visitors make no third-party requests. The font is under the SIL Open Font License. See [fonts/OFL.txt](fonts/OFL.txt).

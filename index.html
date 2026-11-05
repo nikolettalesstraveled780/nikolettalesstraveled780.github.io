@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
   <meta name="color-scheme" content="light dark">
   <title>Ventris Tools · EEG decoding in your browser</title>
   <meta name="description" content="Ventris Tools is an open-source project for understanding EEG. The software runs in your browser, so your data never reaches a server.">
@@ -11,6 +11,8 @@
   <meta property="og:description" content="EEG decoding in your browser.">
   <meta property="og:type" content="website">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/JetBrainsMono-Medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -53,8 +55,9 @@
     <section class="block" aria-labelledby="principles-title">
       <h2 id="principles-title">Principles</h2>
       <ul class="principles">
-        <li><strong>In the browser</strong> Nothing to install and no account. Your data never leaves the browser.</li>
+        <li><strong>In the browser</strong> Nothing to install and no account. Open a page and start.</li>
         <li><strong>Open source</strong> Anyone can read the code, check it and improve it.</li>
+        <li><strong>Private</strong> No uploads and no tracking. Your data never leaves the browser.</li>
       </ul>
     </section>
   </main>

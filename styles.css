@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/JetBrainsMono-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   color-scheme: light;
   --paper: #f7f3ea;
@@ -5,10 +21,8 @@
   --ink: #211c17;
   --ink-2: #5b5248;
   --line: #e0d8c8;
-  --accent: #a8431f;
+  --accent: #008a7a;
   --on-accent: #ffffff;
-  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +33,8 @@
     --ink: #f2ece1;
     --ink-2: #c4b9a8;
     --line: #3a332b;
-    --accent: #cf7549;
-    --on-accent: #1a120c;
+    --accent: #1aa394;
+    --on-accent: #0e1a18;
   }
 }
 
@@ -32,10 +46,14 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font: 17px/1.55 var(--sans);
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-h1, h2, h3, p, ul { margin: 0; padding: 0; }
+h1, h2, h3, p, ul { margin: 0; padding: 0; font-weight: 500; }
+
+p { font-weight: 400; }
 
 a { color: inherit; text-underline-offset: 3px; }
 
@@ -59,7 +77,9 @@ a { color: inherit; text-underline-offset: 3px; }
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font: 600 1.15rem/1 var(--serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1;
   text-decoration: none;
 }
 
@@ -90,17 +110,17 @@ a { color: inherit; text-underline-offset: 3px; }
 .intro { padding-block: 72px 36px; }
 
 h1 {
-  font: 500 clamp(2.4rem, 7vw, 4rem)/1.05 var(--serif);
-  letter-spacing: -0.02em;
+  font-size: clamp(1.85rem, 6vw, 3.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
   text-wrap: balance;
 }
 
 .lede {
-  max-width: 32em;
+  max-width: 36em;
   margin-top: 20px;
   color: var(--ink-2);
-  font-size: 1.2rem;
-  line-height: 1.5;
+  font-size: 1.05rem;
 }
 
 .signal {
@@ -121,7 +141,8 @@ h1 {
 
 h2 {
   color: var(--ink-2);
-  font: 500 0.92rem/1.3 var(--sans);
+  font-size: 0.85rem;
+  line-height: 1.3;
 }
 
 .project {
@@ -141,34 +162,39 @@ h2 {
   margin-bottom: 8px;
 }
 
-h3 { font: 500 1.6rem/1.2 var(--serif); }
+h3 { font-size: 1.35rem; line-height: 1.2; letter-spacing: -0.02em; }
 
 .status {
   padding: 3px 10px;
   border: 1px solid var(--line);
   border-radius: 999px;
   color: var(--ink-2);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   white-space: nowrap;
 }
 
-.project p { max-width: 38em; color: var(--ink-2); }
+.project p { color: var(--ink-2); font-size: 0.95rem; }
 
 .principles {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 28px;
   margin-top: 14px;
   list-style: none;
 }
 
-.principles li { color: var(--ink-2); font-size: 0.96rem; }
+.principles li {
+  color: var(--ink-2);
+  font-size: 0.88rem;
+  font-weight: 400;
+}
 
 .principles strong {
   display: block;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   color: var(--ink);
-  font: 500 1.15rem/1.3 var(--serif);
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .colophon {
@@ -177,13 +203,16 @@ h3 { font: 500 1.6rem/1.2 var(--serif); }
   margin-top: 64px;
   padding-block: 24px 48px;
   color: var(--ink-2);
-  font-size: 0.88rem;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 720px) {
+  .principles { grid-template-columns: minmax(0, 1fr); gap: 16px; }
 }
 
 @media (max-width: 640px) {
   .masthead, main, .colophon { padding-inline: 16px; }
   .intro { padding-block: 40px 28px; }
-  .lede { font-size: 1.1rem; }
+  .lede { font-size: 1rem; }
   .project { padding: 18px; }
-  .principles { grid-template-columns: minmax(0, 1fr); gap: 16px; }
 }
