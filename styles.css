@@ -147,6 +147,7 @@ h2 {
 }
 
 .project {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
@@ -158,7 +159,16 @@ h2 {
   background: var(--surface);
 }
 
+.project:hover { border-color: var(--accent); }
+
 h3 { font-size: 1.35rem; line-height: 1.2; letter-spacing: -0.02em; }
+
+/* The title is the link, and it stretches to make the whole card clickable. */
+.project h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
 
 .status {
   padding: 3px 10px;
